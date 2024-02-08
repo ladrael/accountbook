@@ -121,6 +121,7 @@ fun MyApplicationTheme(
         colorScheme = colorScheme,
         typography = Typography,
         content = content,
-        shapes = jujuShapes
+        shapes = jujuShapes,
+
     )
 }
