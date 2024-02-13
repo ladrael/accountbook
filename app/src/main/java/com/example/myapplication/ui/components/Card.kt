@@ -1,14 +1,19 @@
 package com.example.myapplication.ui.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,19 +24,22 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 fun jujuCard(
     modifier: Modifier = Modifier,
     shape: Shape = MaterialTheme.shapes.medium,
+    colors: CardColors = CardDefaults.cardColors(
+        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+    ),
     elevation: CardElevation = CardDefaults.cardElevation(
         defaultElevation = 8.dp,
         pressedElevation = 2.dp,
         focusedElevation = 4.dp
     ),
+    border: BorderStroke? = null,
     content: @Composable ColumnScope.() -> Unit,
 ){
     Card(
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surfaceVariant,
-        ),
-        elevation = elevation,
         modifier = modifier,
+        colors = colors,
+        elevation = elevation,
+        border = border,
         content = content,
         shape = shape,
     )
@@ -43,11 +51,12 @@ fun jujuCard(
 fun PreviewJujuCard(){
     MyApplicationTheme {
         jujuCard(
-            modifier = Modifier.size(width = 50.dp, height = 50.dp)
+            modifier = Modifier.size(width = 180.dp, height = 100.dp)
         ){
-            Text(text = "DEMO")
-            Text(text = "SEC1")
-            Text(text = "깐쇼정식 4, 깐쇼 곱 1, 짜장면 곱 계란후라이 *2 ")
+            Box(Modifier.fillMaxWidth()){
+              Text("Clickable",Modifier.align(Alignment.Center))
+            }
+
         }
     }
 }
