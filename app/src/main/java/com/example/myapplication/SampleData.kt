@@ -1,5 +1,7 @@
 package com.example.myapplication
 
+import com.example.myapplication.ui.components.Message
+
 object SampleData {
     // Sample conversation data
     val conversationSample = listOf(
